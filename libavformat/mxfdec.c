@@ -2831,6 +2831,9 @@ static int mxf_parse_structural_metadata(MXFContext *mxf)
             current_channel = 0;
 
             channel_ordering = av_mallocz_array(descriptor->channels, sizeof(int));
+            for (j = 0; j < descriptor->channels; ++j) {
+                channel_ordering[j] = j;
+            }
 
             for (j = 0; j < descriptor->sub_descriptors_count; j++) {
                 MXFMCASubDescriptor *mca_sub_descriptor = mxf_resolve_strong_ref(mxf, &descriptor->sub_descriptors_refs[j], MCASubDescriptor);
