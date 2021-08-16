@@ -45,6 +45,5 @@ jobs:
         ./imf-unit-tests.sh
 
     - name: Run Fate
-      if: github.ref == 'refs/heads/develop'
       run: |
         FATE_SAMPLES=fate-suite/ make fate
