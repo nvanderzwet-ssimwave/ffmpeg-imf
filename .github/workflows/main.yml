@@ -46,4 +46,4 @@ jobs:
 
     - name: Run Fate
       run: |
-        FATE_SAMPLES=fate-suite/ make fate
+        FATE_SAMPLES=fate-suite/ make fate -k
