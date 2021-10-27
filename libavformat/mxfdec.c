@@ -3857,7 +3857,7 @@ static int mxf_audio_remapping(int* channel_ordering, uint8_t* data, int size, i
 {
     int sample_offset = channels * sample_size;
     int number_of_samples = size / sample_offset;
-    uint8_t* tmp = av_malloc(sample_offset);
+    uint8_t tmp[FF_SANE_NB_CHANNELS * 4];
     uint8_t* data_ptr = data;
 
     if (!tmp)
@@ -3874,7 +3874,6 @@ static int mxf_audio_remapping(int* channel_ordering, uint8_t* data, int size, i
 
         data_ptr += sample_offset;
     }
-    av_free(tmp);
     return 0;
 }
 
